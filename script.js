@@ -1,26 +1,24 @@
 'use strict';
 
-///////////////////////////////////////////////////////
-// 1. Constructor Functions & the new Operator
-
 const Person = function (firstName, birthYear) {
-  // Instance properties
   this.firstName = firstName;
   this.birthYear = birthYear;
 };
 
-const jonas = new Person('Jonas', 1991);
-const matilda = new Person('Matilda', 2017);
-const jack = new Person('Jack', 1975);
+const andrei = new Person('Andrei', 1977);
+console.log(andrei);
 
-console.log(jonas);       // Person { firstName: 'Jonas', birthYear: 1991 }
-console.log(matilda);
-console.log(jack);
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
 
-// What happens when we call a function with `new`:
-// 1. A new empty object {} is created
-// 2. The function is called, `this` = the new object
-// 3. The new object is linked to a prototype
-// 4. The function automatically returns the new object
+andrei.calcAge();
 
-console.log(jonas instanceof Person); // true
+console.log(Person.prototype.isPrototypeOf(andrei));
+console.log(Person.prototype.isPrototypeOf(Person));
+
+Person.prototype.species = 'Homo Sapiens';
+console.log(andrei.species);
+
+console.log(andrei.hasOwnProperty('firstName'));
+console.log(andrei.hasOwnProperty('species'));

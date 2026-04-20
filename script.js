@@ -32,9 +32,14 @@ class PersonCl {
   calcAge() {
     console.log(2037 - this.birthYear);
   }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
 }
 
 const jessica = new PersonCl('Jessica', 2001);
 console.log(jessica);
 
 jessica.calcAge();
+console.log(jessica.age);

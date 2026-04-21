@@ -36,6 +36,11 @@ class PersonCl {
   get age() {
     return 2037 - this.birthYear;
   }
+
+  static hey() {
+    console.log('Hey there!');
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl('Jessica', 2001);
@@ -43,3 +48,5 @@ console.log(jessica);
 
 jessica.calcAge();
 console.log(jessica.age);
+
+PersonCl.hey();
